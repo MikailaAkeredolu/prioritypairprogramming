@@ -26,7 +26,7 @@ public class User {
             product.inventory = product.inventory -  qty; // updating inventory by subtracting 1 qty of product from inventory
             //product.inventory +=  qty;
             //cart.setProducts(productsInCart);
-            System.out.println("made it here");
+            System.out.println("saved successfully");
         }else{
 
             System.out.println("Sorry we were unable to fulfill this order");
@@ -39,6 +39,26 @@ public class User {
     }
 
     public void removeFromCart(Product product, Integer qty){
+        Map<Product, Integer> productsInCart =  cart.getProducts();
+        // Check if cart has the particular product
+        if(productsInCart.containsKey(product)){
+            //check if amt to remove is not > than what you already have in the cart
+                if(productsInCart.get(product) < qty){
+                    System.out.println("You are doing too much!");
+                    }else if(qty == productsInCart.get(product)){     //second check to if qty to remove and qty in cart matches
+                       //update inventory
+                    product.inventory = product.inventory +  qty; // product.setInventory(product.getInventory());
+
+                    productsInCart.remove(product);        // remove the product from the cart
+                }else{
+                    product.inventory = product.inventory +  qty;
+                    int newNumberInCart = productsInCart.get(product) - qty;
+                    productsInCart.replace(product, newNumberInCart);
+                }
+        }else{
+            System.out.println("Product not in cart");
+        }
+
 
     }
 
