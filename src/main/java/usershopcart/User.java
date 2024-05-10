@@ -16,12 +16,21 @@ public class User {
 
     public void addToCart(Product product, Integer qty){
         //check if qty < inventory before adding entry
-        if(qty < product.inventory){
+        if(qty <= product.inventory){
             Map<Product, Integer> productsInCart =  cart.getProducts();        //access the map (cart)
+            if(productsInCart.containsKey(product)){
+               qty += productsInCart.get(product);
+            }
             productsInCart.put(product, qty);    //add a Map.Entry (product,qty)
+            //subtract qty bought from inventory
+            product.inventory = product.inventory -  qty; // updating inventory by subtracting 1 qty of product from inventory
+            //product.inventory +=  qty;
+            //cart.setProducts(productsInCart);
+            System.out.println("made it here");
+        }else{
+
+            System.out.println("Sorry we were unable to fulfill this order");
         }
-
-
 
             //else
         //print message and deny action

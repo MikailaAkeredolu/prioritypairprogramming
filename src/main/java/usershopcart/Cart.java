@@ -15,7 +15,12 @@ public class Cart {
 
     //methods
     public int cartQty(){
-        return products.size();
+        //loop through the cart
+        int total = 0;
+        for(Integer value: products.values()){
+            total += value;
+        }
+        return total;
     }
 
     public Map<Product, Integer> getProducts() {
