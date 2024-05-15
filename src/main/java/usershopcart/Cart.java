@@ -22,6 +22,34 @@ public class Cart {
         }
         return total;
     }
+    
+    //subtotal
+    public double subTotal(){
+        double total = 0.0; //a container
+        //we need to loop through each product in the map
+        for (Map.Entry<Product, Integer> item: products.entrySet()) {
+            //get the key of each item in the map
+                //get the price of the product by using the key
+                double price = item.getKey().getPrice();
+              //multiply the price of the product by the number of products
+              int numberOfProducts = item.getValue();
+            //add the final price of each product to the container
+               total += price * numberOfProducts;
+
+        }
+
+
+         //return total
+        return total;
+    }
+
+    //totalAfterTax
+
+    //checkout
+
+    //printSpecial
+
+
 
     public Map<Product, Integer> getProducts() {
         return products;
