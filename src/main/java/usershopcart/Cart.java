@@ -1,5 +1,6 @@
 package usershopcart;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,8 @@ public class Cart {
         }
         return total;
     }
+
+
     
     //subtotal
     public double subTotal(){
@@ -44,10 +47,54 @@ public class Cart {
     }
 
     //totalAfterTax
+    public double totalAfterTax(){
+        //making a variable or a container
+        double total = 0.0;
+        //calculate the tax on the products in your cart
+        double taxOnProducts  = subTotal() * TAX; // multiply the subtotal by the tax
+        //Add the taxOnProducts to subTotal
+        total = taxOnProducts + subTotal();    //Store the result where inside total
+     //return total
+        return total;
+    }
 
     //checkout
 
     //printSpecial
+    public void printSpecial(){
+        // get the specific day
+        String dayOfTheWeek = LocalDate.now().getDayOfWeek().name().substring(0,3);
+        Special specialDay = Special.valueOf(dayOfTheWeek);
+        //Use switch case the day of the week
+          //based on day of the week - print a message
+        switch(specialDay){
+            case MON :
+                System.out.println("20% off");
+                break;
+            case TUE:
+                System.out.println("10% off");
+                break;
+            case WED:
+                System.out.println("5% off");
+                break;
+            case THU:
+                System.out.println("15% off");
+                break;
+            case FRI:
+                System.out.println("11% off");
+                break;
+            case SAT:
+                System.out.println("25% off");
+                break;
+            case SUN:
+                System.out.println("0% off");
+                break;
+            default:
+                System.out.println("No such day");
+                break;
+
+        }
+    }
 
 
 
