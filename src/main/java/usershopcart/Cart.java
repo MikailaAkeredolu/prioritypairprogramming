@@ -58,43 +58,54 @@ public class Cart {
         return total;
     }
 
-    //checkout
 
-    //printSpecial
-    public void printSpecial(){
+    public String getSpecial(){
         // get the specific day
-        String dayOfTheWeek = LocalDate.now().getDayOfWeek().name().substring(0,3);
-        Special specialDay = Special.valueOf(dayOfTheWeek);
+        String today = LocalDate.now().getDayOfWeek().name().substring(0,3);
+//        Special specialDay = Special.valueOf(dayOfTheWeek);
+        this.special = Special.valueOf(today);
         //Use switch case the day of the week
-          //based on day of the week - print a message
-        switch(specialDay){
+        //based on day of the week - print a message
+        switch(special){
             case MON :
-                System.out.println("20% off");
-                break;
+                return "20% off";
             case TUE:
-                System.out.println("10% off");
-                break;
+                return "10% off";
             case WED:
-                System.out.println("5% off");
-                break;
+               return "5% off";
             case THU:
-                System.out.println("15% off");
-                break;
+               return "15% off";
             case FRI:
-                System.out.println("11% off");
-                break;
+               return "11% off";
             case SAT:
-                System.out.println("25% off");
-                break;
+                return "25% off";
             case SUN:
-                System.out.println("0% off");
-                break;
+               return "0% off";
             default:
-                System.out.println("No such day");
-                break;
+                return null;
 
         }
     }
+
+    //checkout
+    public String checkout(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<Product,Integer> entry : products.entrySet()) {
+            Product product = entry.getKey();
+            Integer quantity = entry.getValue();
+            Double price = entry.getKey().getPrice();
+            stringBuilder
+                    .append("name: ").append(product.getName())
+                    .append("price: ").append(price)
+                    .append("quantity ").append(quantity).append("\n");
+        }
+        stringBuilder.append(subTotal()).append("\n");
+        stringBuilder.append(totalAfterTax()).append("\n");
+        return stringBuilder.toString();
+    }
+
+
+
 
 
 

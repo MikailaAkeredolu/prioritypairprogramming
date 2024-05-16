@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,6 +26,7 @@ class CartTest {
         cart = user.getCart();
         user.addToCart(item1, 2);
         user.addToCart(item2, 1);
+        special = Special.WED;
     }
     @Test
     void subTotalTest() {
@@ -54,8 +56,29 @@ class CartTest {
 
     @Test
     void printSpecialTest(){
+        //given
+        String expected = "15% off";
+        //when
+        String actual = cart.getSpecial();
+        //then
+        Assertions.assertEquals(expected, actual);
 
     }
+
+
+    @Test
+    void checkoutTest(){
+        //given
+        String expected = null;
+
+        //when
+        String actual = cart.checkout();
+
+        //then
+        Assertions
+
+    }
+
 
 
 

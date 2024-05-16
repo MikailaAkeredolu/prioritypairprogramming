@@ -26,10 +26,10 @@ public class User {
             product.inventory = product.inventory -  qty; // updating inventory by subtracting 1 qty of product from inventory
             //product.inventory +=  qty;
             //cart.setProducts(productsInCart);
-            System.out.println("saved successfully");
+           // System.out.println("Enjoy your " + product.getName());
         }else{
 
-            System.out.println("Sorry we were unable to fulfill this order");
+            System.out.println("Out of stock");
         }
 
             //else
@@ -44,7 +44,7 @@ public class User {
         if(productsInCart.containsKey(product)){
             //check if amt to remove is not > than what you already have in the cart
                 if(productsInCart.get(product) < qty){
-                    System.out.println("You are doing too much!");
+                    System.out.println("Unable to perform transaction");
                     }else if(qty == productsInCart.get(product)){     //second check to if qty to remove and qty in cart matches
                        //update inventory
                     product.inventory = product.inventory +  qty; // product.setInventory(product.getInventory());
