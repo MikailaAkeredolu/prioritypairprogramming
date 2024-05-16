@@ -34,14 +34,23 @@ public class Person implements Comparable<Person>{
                 '}';
     }
 
+//    @Override
+//    public int compareTo(Person o) {
+//        return 0;
+//    }
+
+//    @Override
+//    public int compareTo(Person person) {
+//        if(this.age > person.getAge()){
+//            return 1; //if this object is > than the object passed return a positive  1
+//        }else if(this.age < person.getAge()){
+//            return -1; //if this object is < than the object passed return a negative  -1
+//        }
+//        return 0; //if this object is == the object passed return a positive  0
+//    }
     @Override
     public int compareTo(Person person) {
-        if(this.age > person.getAge()){
-            return 1; //if this object is > than the object passed return a positive  1
-        }else if(this.age < person.getAge()){
-            return -1; //if this object is < than the object passed return a negative  -1
-        }
-        return 0; //if this object is == the object passed return a positive  0
+      return this.getName().compareToIgnoreCase(person.getName());
     }
 
     //sort by person name

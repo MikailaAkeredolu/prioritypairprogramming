@@ -17,10 +17,10 @@ public class Main {
 
         ArrayList<Person> people = new ArrayList<>();
         people.add(new Person("Jerry", 69));
-        people.add(new Person("Martha", 65));
+        people.add(new Person("Akeem", 65));
         Collections.sort(people); //by their age
         for (Person p :people) {
-            System.out.println(p.getAge());
+            System.out.println(p.getName());
         }
 
 
