@@ -24,8 +24,8 @@ class CartTest {
         item1 = new Hat("Baseball hat", Size.L, 20.00, 100);
         item2 = new Hat("Louis Vuitton Hand Bag", Size.S, 2000.00, 10);
         cart = user.getCart();
-        user.addToCart(item1, 2);
-        user.addToCart(item2, 1);
+        user.addToCart(item1, 0);
+        user.addToCart(item2, 0);
         special = Special.WED;
     }
     @Test
@@ -69,13 +69,18 @@ class CartTest {
     @Test
     void checkoutTest(){
         //given
-        String expected = null;
+        Map<Product, Integer> productsMap = user.getCart().getProducts();
+        Integer item1Qty = productsMap.get(item1);
+        StringBuilder expected = new StringBuilder();
+        expected.append("name: ").append(item1.getName())
+                .append(" price: ").append(item1.getPrice())
+                .append(" quantity ").append(item1Qty).append("\n")
+                .append(cart.subTotal()).append("\n")
+                .append(cart.totalAfterTax()).append("\n");
 
-        //when
-        String actual = cart.checkout();
-
+       String actual = cart.checkout();
         //then
-        Assertions
+        Assertions.assertEquals(expected.toString() ,actual);
 
     }
 

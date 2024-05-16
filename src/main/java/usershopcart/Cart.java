@@ -96,16 +96,17 @@ public class Cart {
             Double price = entry.getKey().getPrice();
             stringBuilder
                     .append("name: ").append(product.getName())
-                    .append("price: ").append(price)
-                    .append("quantity ").append(quantity).append("\n");
+                    .append(" price: ").append(price)
+                    .append(" quantity ").append(quantity).append("\n");
         }
         stringBuilder.append(subTotal()).append("\n");
         stringBuilder.append(totalAfterTax()).append("\n");
         return stringBuilder.toString();
     }
 
-
-
+//Homework - next Tuesday!!!
+//BUG - Fix the issue pf adding or removing  products from the cart
+    //Exceptions - lab
 
 
 

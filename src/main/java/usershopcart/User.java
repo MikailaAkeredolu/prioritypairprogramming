@@ -16,7 +16,7 @@ public class User {
 
     public void addToCart(Product product, Integer qty){
         //check if qty < inventory before adding entry
-        if(qty <= product.inventory){
+        if(qty <= product.inventory && qty > 0){
             Map<Product, Integer> productsInCart =  cart.getProducts();        //access the map (cart)
             if(productsInCart.containsKey(product)){
                qty += productsInCart.get(product);

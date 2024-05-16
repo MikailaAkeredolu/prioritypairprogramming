@@ -23,9 +23,9 @@ class UserTest {
 //        Product product1 = new Hat("Baseball hat", Size.L, 20.00, 100);
 //        User user1 = new User();
         //Expected
-        int expected = 10;
+        int expected = 1;
         //when
-        user1.addToCart(product1, 10);
+        user1.addToCart(product1, 1);
 
         int actual = user1.getCart().cartQty();
 

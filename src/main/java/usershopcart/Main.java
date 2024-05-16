@@ -10,12 +10,10 @@ public class Main {
    User user1 = new User();
    user1.addToCart(product1, 1);
    user1.addToCart(product2, 1);
-
    user1.addToCart(product1, 2);
    user1.removeFromCart(product1, 2);
 
 //   System.out.println(user1.getCart().cartQty());
-        System.out.println("========checkout==========");
         System.out.println(user1.getCart().checkout());
 
 
