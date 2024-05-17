@@ -50,7 +50,7 @@ public class Person implements Comparable<Person>{
 //    }
     @Override
     public int compareTo(Person person) {
-      return this.getName().compareToIgnoreCase(person.getName());
+      return this.getName().compareTo(person.getName()); //  public int compareTo(String anotherString){}
     }
 
     //sort by person name

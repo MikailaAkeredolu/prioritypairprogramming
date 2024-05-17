@@ -15,6 +15,7 @@ public class Main {
         Comparator<Student> studentComparator = new AgeComparator();
         //now use Collects.sort
         Collections.sort(students,studentComparator );
+        //print out the result
         for(Student student: students){
             System.out.println(student);
         }
