@@ -20,6 +20,7 @@ public class User {
             Map<Product, Integer> productsInCart =  cart.getProducts();        //access the map (cart)
             if(productsInCart.containsKey(product)){
                qty += productsInCart.get(product);
+                //productsInCart.put(product, qty);
             }
             productsInCart.put(product, qty);    //add a Map.Entry (product,qty)
             //subtract qty bought from inventory
@@ -29,7 +30,7 @@ public class User {
            // System.out.println("Enjoy your " + product.getName());
         }else{
 
-            System.out.println("Out of stock");
+            System.out.println("Unable to add 0 qty");
         }
 
             //else
@@ -48,7 +49,6 @@ public class User {
                     }else if(qty == productsInCart.get(product)){     //second check to if qty to remove and qty in cart matches
                        //update inventory
                     product.inventory = product.inventory +  qty; // product.setInventory(product.getInventory());
-
                     productsInCart.remove(product);        // remove the product from the cart
                 }else{
                     product.inventory = product.inventory +  qty;

@@ -13,7 +13,10 @@ public class Main {
    user1.addToCart(product1, 2);
    user1.removeFromCart(product1, 2);
 
-//   System.out.println(user1.getCart().cartQty());
+
+        System.out.println(user1.getCart().getProducts());
+
+//   {Product{id=1, name='Baseball hat', size=L, price=20.0, inventory=98}=1, Product{id=2, name='Hammer Pants', size=M, price=50.0, inventory=499}=1}
         System.out.println(user1.getCart().checkout());
 
 

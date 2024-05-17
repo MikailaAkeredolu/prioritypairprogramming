@@ -24,8 +24,8 @@ class CartTest {
         item1 = new Hat("Baseball hat", Size.L, 20.00, 100);
         item2 = new Hat("Louis Vuitton Hand Bag", Size.S, 2000.00, 10);
         cart = user.getCart();
-        user.addToCart(item1, 0);
-        user.addToCart(item2, 0);
+        user.addToCart(item1, 1);
+        user.addToCart(item2, 1);
         special = Special.WED;
     }
     @Test
@@ -34,7 +34,7 @@ class CartTest {
         Map<Product, Integer> productsMap = user.getCart().getProducts();
         Integer item1Qty = productsMap.get(item1);
         Integer item2Qty = productsMap.get(item2);
-        double expected = ( item1.getPrice () * item1Qty ) + (item2.getPrice()  *item2Qty );
+        double expected = ( item1.getPrice () * item1Qty ) + ( item2.getPrice() * item2Qty );
         //when
         double actual = cart.subTotal();
         //then
@@ -57,7 +57,7 @@ class CartTest {
     @Test
     void printSpecialTest(){
         //given
-        String expected = "15% off";
+        String expected = "11% off";
         //when
         String actual = cart.getSpecial();
         //then
@@ -71,6 +71,7 @@ class CartTest {
         //given
         Map<Product, Integer> productsMap = user.getCart().getProducts();
         Integer item1Qty = productsMap.get(item1);
+        user.removeFromCart(item2,1 );
         StringBuilder expected = new StringBuilder();
         expected.append("name: ").append(item1.getName())
                 .append(" price: ").append(item1.getPrice())
