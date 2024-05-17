@@ -7,8 +7,19 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+//Throw - used to generate exceptions in our code
+//Throws - used to
+
 public class Main {
     //Checked Exceptions
+
+    public static void checkInput(int number){
+        if(number < 0){
+            throw new IllegalArgumentException("Number must be greater than zero");
+        }else{
+            System.out.println("You entered: " + number);
+        }
+    }
     public static void makeFile(){
         File file = new File("/Users/mikaila/Downloads/shopcartfinale/src/main/resources/newfile1");
         try {
@@ -57,6 +68,17 @@ public class Main {
 //        }
 //    }
 
+    //Demo of Throw s again
+    public static void readFromFile() throws FileNotFoundException {
+        File file = new File("/Users/mikaila/Downloads/shopcartfinale/src/main/resources/newfile");
+        Scanner scanner = new Scanner(file);
+            while(scanner.hasNext()){
+                System.out.println(scanner.nextLine());
+            }
+
+    }
+
+
     public static void tryReadFromFileWithResources(){
         File file = new File("/Users/mikaila/Downloads/shopcartfinale/src/main/resources/newfile");
         try(Scanner scanner = new Scanner(file)) {
@@ -66,6 +88,8 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
     }
 
 
@@ -75,9 +99,13 @@ public class Main {
         //makeFile();
         //writeToFile();
         //readFromFile();
-        tryReadFromFileWithResources();
-
-
+       // tryReadFromFileWithResources();
+        //checkInput(8);
+        try {
+            Person.findPersonByName("Jack Jones");
+        } catch (MyCustomException e) {
+            System.out.println(e.getMessage());
+        }
 
 
         // Unchecked Exception is also known as a runtime
